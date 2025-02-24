@@ -4,8 +4,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Set;
 
-import org.bstats.bukkit.Metrics;
-import org.bstats.charts.SimplePie;
+//import org.bstats.bukkit.Metrics;
+//import org.bstats.charts.SimplePie;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -26,7 +26,7 @@ public final class SkQuery extends JavaPlugin {
 
 	private static SkriptAddon addonInstance;
 	private static SkQuery instance;
-	private static Metrics metrics;
+	//private static Metrics metrics;
 
 	@Override
 	public void onEnable() {
@@ -39,10 +39,10 @@ public final class SkQuery extends JavaPlugin {
 		addonInstance = Skript.registerAddon(this).setLanguageFileDirectory("lang");
 		Registration.enable();
 		Bukkit.getPluginManager().registerEvents(new FormattedSlotManager(), this);
-		metrics = new Metrics(this, 437);
-		metrics.addCustomChart(new SimplePie("skriptVersion", () ->
-			Skript.getInstance().getDescription().getVersion()
-		));
+		//metrics = new Metrics(this, 437);
+		//metrics.addCustomChart(new SimplePie("skriptVersion", () ->
+		//	Skript.getInstance().getDescription().getVersion()
+		//));
 		//new Documentation(this);
 	}
 
@@ -67,9 +67,9 @@ public final class SkQuery extends JavaPlugin {
 		return instance;
 	}
 
-	public static Metrics getMetrics() {
-		return metrics;
-	}
+	//public static Metrics getMetrics() {
+	//	return metrics;
+	//}
 
 	private static boolean OLDER_2_7 = Skript.methodExists(ParserInstance.class, "getCurrentScript", null, Config.class);
 	private static Method method;
